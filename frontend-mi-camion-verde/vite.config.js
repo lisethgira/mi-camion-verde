@@ -38,7 +38,9 @@ export default defineConfig({
         clientsClaim: true,
         runtimeCaching: [
           {
-            urlPattern: ({ url }) => url.pathname.startsWith('/api/'),
+            urlPattern: ({ url }) =>
+              url.pathname.startsWith('/api/') ||
+              url.hostname === 'mi-camion-verde.vercel.app',
             handler: 'NetworkFirst',
             options: {
               cacheName: 'ecoruta-api',
